@@ -3,7 +3,6 @@
 from setuptools import find_packages
 from setuptools import setup
 
-
 REQUIRED_PACKAGES = ['Pillow>=1.0', 'Flask', 'tensorflow', 'six', 'matplotlib']
 
 setup(
@@ -28,7 +27,7 @@ REPOSITORY_ZIP_URL = 'https://github.com/tensorflow/models/archive/master.zip'
 
 try:
     filename, headers = urllib.request.urlretrieve(REPOSITORY_ZIP_URL)
-    #filename = 'models-master.zip'
+    # filename = 'models-master.zip'
 
     target_path = os.path.join(os.getcwd(), 'object_detection/')
     temp_path = filename + "_dir"
@@ -46,9 +45,9 @@ except:
           "Try running `git clone https://github.com/tensorflow/models.git`.\n"
           "Then `cp /research/object_detection to /object_detection` instead")
 
-
 '''Compile Protobufs'''
 import subprocess
+
 print("Compiling protobufs")
 try:
     subprocess.Popen('protoc object_detection/protos/*.proto --python_out=.', shell=True)

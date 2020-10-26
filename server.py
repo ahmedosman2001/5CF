@@ -64,6 +64,7 @@ def image():
 
 if __name__ == '__main__':
 	# without SSL
+    # may give ERR_SSL_PROTOCOL_ERROR
     app.run(debug=True, host='0.0.0.0')
 
 	# with SSL

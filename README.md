@@ -45,7 +45,7 @@ Then run the the instructions above.
 ## Example web apps
 
 Point your browser to:
--  `https://localhost:5000/local` - shows a mirrored video from a webcam
+- `https://localhost:5000/local` - shows a mirrored video from a webcam
 - `https://localhost:5000/video` - shows object detection running on a HTML `<video>` tag
 
 ## Browser support
