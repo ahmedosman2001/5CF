@@ -2,6 +2,8 @@ import object_detection_api
 import os
 from PIL import Image
 from flask import Flask, request, Response
+from datetime import datetime
+import mail
 
 app = Flask(__name__)
 
@@ -55,6 +57,7 @@ def image():
         # finally run the image through tensor flow object detection`
         image_object = Image.open(image_file)
         objects = object_detection_api.get_objects(image_object, threshold)
+        print(objects)
         return objects
 
     except Exception as e:
@@ -65,7 +68,7 @@ def image():
 if __name__ == '__main__':
 	# without SSL
     # may give ERR_SSL_PROTOCOL_ERROR
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=4000 )
 
 	# with SSL
-    #app.run(debug=True, host='0.0.0.0', ssl_context=('ssl/server.crt', 'ssl/server.key'))
+    #app.run(debug=True, host='0.0.0.0', port=4000, ssl_context=('ssl/server.crt', 'ssl/server.key'))
